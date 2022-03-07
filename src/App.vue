@@ -9,7 +9,7 @@
         <h2>Ports around the World</h2>
         <Search v-on:query-change="querySearch" v-on:country-change="queryCountry" @onSelected="selectContinent"/>
       </div> 
-        <Todos v-bind:todoslist="copyTodos"/>
+        <Ports v-bind:portslist="copyPorts"/>
     </div>
     <pagination v-model="page" :records="total" :per-page="perPage" @paginate="changePage"/>
   </div>
@@ -17,7 +17,7 @@
 
 <script>
 import Search from './components/Search.vue';
-import Todos from './components/Todos.vue';
+import Ports from './components/Ports.vue';
 import api from './api'
 import Pagination from 'v-pagination-3';
 
@@ -25,37 +25,37 @@ import Pagination from 'v-pagination-3';
 export default {
   name: 'App',
   components: {
-     Todos, Search, Pagination
+     Ports, Search, Pagination
   },
   methods:{
     querySearch(query){
       if(query.trim()=== ''){
-        this.copyTodos = [...this.todos];
+        this.copyPorts = [...this.ports];
       }else{
-        const temp = this.todos.filter(todo =>{
-          return todo.name.toLowerCase().includes(query.toLowerCase())
+        const temp = this.ports.filter(port =>{
+          return port.name.toLowerCase().includes(query.toLowerCase())
         });
-        this.copyTodos = [...temp]
+        this.copyPorts = [...temp]
       }
     },
     selectContinent(selected){
         if (selected.trim() === '') {
-          this.copyTodos = [...this.todos];
+          this.copyPorts = [...this.ports];
         } else {
-          const temp = this.todos.filter( todo =>{
-            return todo.continent === selected
+          const temp = this.ports.filter( port =>{
+            return port.continent === selected
           });
-          this.copyTodos = [...temp]
+          this.copyPorts = [...temp]
         }
     },
     queryCountry(country){
       if(country.trim()=== ''){
-        this.copyTodos = [...this.todos];
+        this.copyPorts = [...this.ports];
       }else{
-        const temp = this.todos.filter(todo =>{
-          return todo.country.toLowerCase().includes(country.toLowerCase())
+        const temp = this.ports.filter(port =>{
+          return port.country.toLowerCase().includes(country.toLowerCase())
         });
-        this.copyTodos = [...temp]
+        this.copyPorts = [...temp]
       }
     },
     changePage(page){
@@ -65,8 +65,8 @@ export default {
       api
       .get(`/ports?page=${page}`)
       .then( response => {
-        this.todos = response.data.data;
-        this.copyTodos = [...this.todos];
+        this.ports = response.data.data;
+        this.copyPorts = [...this.ports];
         this.total= response.data.meta.total;
         this.page= response.data.meta.current_page;
         this.perPage= response.data.meta.per_page;
@@ -76,8 +76,8 @@ export default {
   },
   data(){
     return{
-      todos:[],
-      copyTodos:[],
+      ports:[],
+      copyPorts:[],
       total:0,
       perPage:1,
       page: 1,
@@ -94,7 +94,6 @@ export default {
     },
     selected: {
       handler: function(value){
-        console.log(value)
         this.selectContinent(value)
       }
     }

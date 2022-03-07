@@ -8,8 +8,8 @@
               <th><strong>Continent</strong></th>
               <th><strong>Coordinates</strong></th>
             </tr>
-            <tr v-bind:key="todo.id" v-for="todo in todoslist">
-                <TodoItem  v-bind:todo="todo" />
+            <tr v-bind:key="port.id" v-for="port in portslist">
+                <PortItem  v-bind:port="port" />
             </tr>
           </table>
         </div>
@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import TodoItem from './TodoItem.vue';
+import PortItem from './PortItem.vue';
     export default {
-        name: 'Todos-name',
-        props: ['todoslist'],
-        components: {TodoItem}
+        name: 'Ports-name',
+        props: ['portslist'],
+        components: {PortItem}
     }
 </script>
 

@@ -1,22 +1,25 @@
+
 <template class="contents">
-    <td v-text="todo.name"></td>
-    <td v-text="todo.country"></td>
-    <td v-text="todo.continent"></td>
-    <td v-text="todo.coordinates"></td>
+    <td v-text="port.name"></td>
+    <td v-text="port.country"></td>
+    <td v-text="port.continent"></td>
+    <td v-text="port.coordinates"></td>
 </template>
 
 <script>
+
+
     export default {
-        name:'TodoItem',
-        props: ['todo'],
+        name:'PortItem',
+        props: ['port'],
         data() {
             return {
-                completed: this.todo.completed
+                found: this.port.found
             }
         },
         methods: {
             checkTodo(){
-                this.completed = !this.completed;
+                this.found = !this.found;
             }
         }
     }
