@@ -1,3 +1,4 @@
+<!-- Es el header de la tabla de los puertos, en donde se indican las categorias que traer la Api-->
 <template>
     <div>
         <div>
@@ -17,6 +18,10 @@
 </template>
 
 <script>
+/**importación del componente PorItem ( quien trae cada puerto encontrado) dentro de la api.
+ * El export default además de exportar el archivo en el que nos encontramos (Ports), 
+ * señala que el mismo tiene como props la lista de puertos y como componente contiene a PortItem.*/
+
 import PortItem from './PortItem.vue';
     export default {
         name: 'Ports-name',

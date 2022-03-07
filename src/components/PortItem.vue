@@ -1,3 +1,4 @@
+ <!--tabla con cada elemento que debe contener y traer de la api -->
 
 <template class="contents">
     <td v-text="port.name"></td>
@@ -7,21 +8,10 @@
 </template>
 
 <script>
-
-
+/**Este es el componente a exportar en Ports para que lleve los datos de cada puerto de forma indidividual.*/
     export default {
         name:'PortItem',
-        props: ['port'],
-        data() {
-            return {
-                found: this.port.found
-            }
-        },
-        methods: {
-            checkTodo(){
-                this.found = !this.found;
-            }
-        }
+        props: ['port']
     }
 </script>
 

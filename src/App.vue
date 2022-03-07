@@ -1,3 +1,5 @@
+<!-- El componente App reune a todos los demás componentes de la aplicación. En el HTML para mostrar en pantalla 
+y en el Script para el funcionamiento-->
 <template>
   <div>
     <div id="header">
@@ -18,7 +20,11 @@
 <script>
 import Search from './components/Search.vue';
 import Ports from './components/Ports.vue';
+
+/** importación del archivo api que se creó para conectar la Api mediante el endpoint*/
 import api from './api'
+
+/** importación del paquete de paginación*/
 import Pagination from 'v-pagination-3';
 
 
@@ -27,6 +33,10 @@ export default {
   components: {
      Ports, Search, Pagination
   },
+
+  /** funciones que corresponden a cada filtro del componente search, para traer puertos según nombre, continente o pais.
+   *  la función changePage, es la encargada de hacer la renderización de la paginación y en fetchpoint es el endpoint,
+   *  para conectar con la api. */
   methods:{
     querySearch(query){
       if(query.trim()=== ''){
@@ -83,18 +93,17 @@ export default {
       page: 1,
     }
   },
+
+  /** Conexión de cada puerto por pagina */
   mounted(){
     this.fetchPorts(this.page)
   },
+
+  /** Renderización del componente App para que actualice las páginas */
   watch: {
     page: {
       handler: function(value){
         this.fetchPorts(value)
-      }
-    },
-    selected: {
-      handler: function(value){
-        this.selectContinent(value)
       }
     }
   }
