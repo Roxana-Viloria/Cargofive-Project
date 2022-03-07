@@ -1,5 +1,4 @@
  <!--tabla con cada elemento que debe contener y traer de la api -->
-
 <template class="contents">
     <td v-text="port.name"></td>
     <td v-text="port.country"></td>
@@ -8,7 +7,10 @@
 </template>
 
 <script>
-/**Este es el componente a exportar en Ports para que lleve los datos de cada puerto de forma indidividual.*/
+/** 
+ * Componente carga la información de un solo puerto
+ * @vue-prop {String} port - información de un puerto.
+ */
     export default {
         name:'PortItem',
         props: ['port']

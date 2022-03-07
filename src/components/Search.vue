@@ -18,9 +18,10 @@ Hay 3 filtros de búsqueda. Un Select para escoger el continente y dos inputs de
 </template>
 
 <script>
-/** La data retorna: 1) query, que corresponde a la name del puerto que se busca.
- * 2) select, que corresponde al input de busqueda por continente, en donde se selecciona segun los predeterminados y
- *  3) counttry, también es un input de busqueda en relación al pais en donde quiere hallarse un puerto */
+/**  @vue-data {string} query - corresponde al nombre del puerto que se busca en el input filtro.
+ *   @vue-data {string} selected - input de busqueda por continente. 
+ *   @vue-data {string} country - input de busqueda en relación al pais en donde quiere hallarse un puerto. 
+ */
 export default {
     name:'Search-name',
     data(){

@@ -18,10 +18,10 @@
 </template>
 
 <script>
-/**importación del componente PorItem ( quien trae cada puerto encontrado) dentro de la api.
- * El export default además de exportar el archivo en el que nos encontramos (Ports), 
- * señala que el mismo tiene como props la lista de puertos y como componente contiene a PortItem.*/
-
+/** 
+ * Importación del componente PorItem ( quien trae cada puerto encontrado) dentro de la api.
+ * @vue-props {String} portslist - lista de puertos.
+ */
 import PortItem from './PortItem.vue';
     export default {
         name: 'Ports-name',
