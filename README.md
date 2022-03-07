@@ -45,3 +45,5 @@ Siendo que una vez hecho el fetch, se trae la base de datos y cada componente ti
 la lista de todos los puertos para posteriormente llamar uno a uno segun sea necesatio a través de los filtros. 
 
 Se hizo paginación del fetch, por pagina se traen 100 elementos.
+
+Documentación en carpeta docs

@@ -26,11 +26,16 @@ import api from './api'
 import Pagination from 'v-pagination-3';
 
 /** 
-   * @vue-data {String} ports - Puertos de la api.
-   * @vue-data {String} copyPorts - Copia de los puertos.
-   * @vue-data {number} total - Totalidad de puertos.
-   * @vue-data {number} perPage - Puertos por pagina.
-   * @vue-data {number} page - paginación.
+   * @vue-data {Array} ports - Puertos de la api.
+   * @vue-data {Array} copyPorts - Copia de los puertos.
+   * @vue-data {Number} total - Totalidad de puertos.
+   * @vue-data {Number} perPage - Puertos por pagina.
+   * @vue-data {Number} page - paginación.
+   * @vue-event {Array} querySearch - lista de puertos que hacen match con el nombre del puerto que escribe el usuario.
+   * @vue-event {Array} selectContinent - lista de puertos que hacen match con el continente seleccionado por el usuario. 
+   * @vue-event {Array} queryCountry - lista de puertos que hacen match con el país que escribe el usuario.
+   * @vue-event {Number} changePage - cambia la pagina seleccionada por el usuario.
+   * @vue-event {Void} fetchPorts - método asíncrono para consultar el endpoint que trae los puertos por página.
    */
 
 export default {
@@ -38,10 +43,6 @@ export default {
   components: {
      Ports, Search, Pagination
   },
-
-  //funciones que corresponden a cada filtro del componente search, para traer puertos según nombre, continente o pais.
-    //la función changePage, es la encargada de hacer la renderización de la paginación y en fetchpoint es el endpoint,
-    //para conectar con la api.//
   methods:{
     querySearch(query){
       if(query.trim()=== ''){
@@ -87,7 +88,6 @@ export default {
         this.perPage= response.data.meta.per_page;
       })
     }
-
   },
   data(){
     return{

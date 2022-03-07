@@ -18,11 +18,12 @@
 </template>
 
 <script>
+
+import PortItem from './PortItem.vue';
 /** 
  * Importación del componente PorItem ( quien trae cada puerto encontrado) dentro de la api.
- * @vue-props {String} portslist - lista de puertos.
+ * @vue-prop {String} portslist - lista de puertos.
  */
-import PortItem from './PortItem.vue';
     export default {
         name: 'Ports-name',
         props: ['portslist'],
